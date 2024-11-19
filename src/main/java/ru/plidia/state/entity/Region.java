@@ -53,7 +53,10 @@ public class Region {
     public static String generateName(String name) {
         Random random = new Random();
         StringBuilder sb = new StringBuilder(10);
-        for (int i = 0; i < sb.capacity(); i++) {
+        for (int i = 0; i < 1; i++) {
+            sb.append((char) ('A' + random.nextInt(25)));
+        }
+        for (int i = 1; i < sb.capacity(); i++) {
             sb.append((char) ('a' + random.nextInt(25)));
         }
         return sb.toString();

@@ -43,13 +43,9 @@ public class Capital {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(name).append("Население столицы ")
-                .append(populationSize)
-                .append(" человек").append(citizen);
+        sb.append("Столица - ").append(name).append(". Население столицы ")
+                .append(populationSize).append(" человек:")
+                .append("\n").append(citizen);
         return sb.toString();
     }
-
-//    static int generatePopulationSize(int populationSize) {
-//        return populationSize = (int) (Math.random() * 1000);
-//    }
 }

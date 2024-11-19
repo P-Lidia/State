@@ -5,13 +5,15 @@ import java.util.Random;
 
 public class Region {
     private String name;
+    private int districtNumbers;
     private List<District> district;
 
     public Region() {
     }
 
-    public Region(String name, List<District> district) {
+    public Region(String name, int districtNumbers, List<District> district) {
         this.name = name;
+        this.districtNumbers = districtNumbers;
         this.district = district;
     }
 
@@ -21,6 +23,14 @@ public class Region {
 
     public String getName() {
         return name;
+    }
+
+    public void setDistrictNumbers(int districtNumbers) {
+        this.districtNumbers = districtNumbers;
+    }
+
+    public int getDistrictNumbers() {
+        return districtNumbers;
     }
 
     public void setDistrict(List<District> district) {
@@ -34,7 +44,9 @@ public class Region {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(generateName(name)).append(": ").append(district);
+        sb.append("Регион - ").append(generateName(name)).append(", областей -  ")
+                .append(districtNumbers).append(":").append("\n")
+                .append(district);
         return sb.toString();
     }
 

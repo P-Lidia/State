@@ -44,22 +44,22 @@ public class City {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("В городе").append(generateName(name)).append(" проживает ")
-                .append(generatePopulationSize(populationSize))
-                .append(" жителей: ").append(citizen.getClass());
+        sb.append("В городе ").append(generateName(name)).append(" проживает ")
+                .append(populationSize)
+                .append(" жителей: ").append(citizen).append("\n");
         return sb.toString();
     }
 
     public static String generateName(String name) {
         Random random = new Random();
-        StringBuilder sb = new StringBuilder(10);
-        for (int i = 0; i < sb.capacity(); i++) {
+        StringBuilder sb = new StringBuilder(8);
+        for (int i = 0; i < 1; i++) {
+            sb.append((char) ('A' + random.nextInt(25)));
+        }
+        for (int i = 1; i < sb.capacity(); i++) {
             sb.append((char) ('a' + random.nextInt(25)));
         }
         return sb.toString();
     }
-
-    static int generatePopulationSize(int populationSize) {
-        return populationSize = (int) (Math.random() * 1000);
-    }
 }
+

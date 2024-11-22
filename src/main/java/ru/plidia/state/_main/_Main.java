@@ -22,7 +22,7 @@ public class _Main {
         for (int i = 0; i <= counter; i++) {
             cities.add(city);
         }
- //       System.out.println(cities);
+        //       System.out.println(cities);
 
         District district = new District("Sfdfdf", cities.size(), cities);
         List<District> districts = new ArrayList<>();
@@ -39,7 +39,6 @@ public class _Main {
         Capital capital = new Capital("Capital", citizens.size(), citizens);
         State state = State.getInstance();
         PrintRequest request = new PrintRequest();
-
 
 
     }

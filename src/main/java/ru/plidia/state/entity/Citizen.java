@@ -62,7 +62,6 @@ public class Citizen {
 
     public String generateSurname(String surname) {
         Random random = new Random();
-        // добавить сюда рандом для капесити - цикл while и int переменную.
         StringBuilder sb = new StringBuilder(10);
         for (int i = 0; i < 1; i++) {
             sb.append((char) ('A' + random.nextInt(25)));
@@ -75,7 +74,8 @@ public class Citizen {
 
     public String generateName(String name) {
         Random random = new Random();
-        StringBuilder sb = new StringBuilder(6);
+        int capacity = 5 + (int) (Math.random() * 5);
+        StringBuilder sb = new StringBuilder(capacity);
         for (int i = 0; i < 1; i++) {
             sb.append((char) ('A' + random.nextInt(25)));
         }

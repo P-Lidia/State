@@ -32,7 +32,21 @@ public class PrintRequest {
                 + (allCitizen / size));
     }
 
-
+    public void printNamesBeginningWithN(List<Citizen> citizenList) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Введите букву, по которой будем искать имена жителей");
+        char ch = sc.next().charAt(0);
+        if (Character.isLowerCase(ch)) {
+            ch = Character.toUpperCase(ch);
+        }
+        int size = citizenList.size();
+        for (int iList = 0; iList < size; iList++) {
+            String str = citizenList.get(iList).getName();
+            if (str.charAt(0) == ch) {
+                System.out.println(str);
+            }
+        }
+    }
 
 
 }

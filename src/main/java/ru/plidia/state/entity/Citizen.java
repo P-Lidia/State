@@ -60,7 +60,7 @@ public class Citizen {
         return sb.toString();
     }
 
-    public static String generateSurname(String surname) {
+    public String generateSurname(String surname) {
         Random random = new Random();
         // добавить сюда рандом для капесити - цикл while и int переменную.
         StringBuilder sb = new StringBuilder(10);

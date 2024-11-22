@@ -3,6 +3,7 @@ package ru.plidia.state._main;
 
 import ru.plidia.state.entity.*;
 import ru.plidia.state.service.PrintRequest;
+import ru.plidia.state.util.Menu;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,14 +16,12 @@ public class _Main {
         List<Citizen> citizens = Stream.generate(Citizen::new)
                 .limit(1000).collect(Collectors.toList());
 
-
         City city = new City("Asdsds", citizens.size(), citizens);
         List<City> cities = new ArrayList<>();
         int counter = (int) (Math.random() * 10);
         for (int i = 0; i <= counter; i++) {
             cities.add(city);
         }
-        //       System.out.println(cities);
 
         District district = new District("Sfdfdf", cities.size(), cities);
         List<District> districts = new ArrayList<>();
@@ -38,7 +37,10 @@ public class _Main {
         }
         Capital capital = new Capital("Capital", citizens.size(), citizens);
         State state = State.getInstance();
+
         PrintRequest request = new PrintRequest();
+        Menu menu = new Menu();
+        menu.menuChoice(request, state, citizens);
 
 
     }

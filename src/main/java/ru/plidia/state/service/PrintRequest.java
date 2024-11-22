@@ -11,12 +11,13 @@ import java.util.Scanner;
 
 
 public class PrintRequest {
-    public void printCapital(Capital capital) {
-        System.out.println("Столица государства: " + capital);
+    public void printCapital(State state) {
+        System.out.println("Столица государства: " + state.getCapital());
     }
 
-    public void printRegionNumber(List<Region> regionList) {
-        System.out.println("Количество областей :" + regionList.size());
+    public void printRegionNumber(State state) {
+
+        System.out.println("Количество областей :" + state.getRegion().size());
     }
 
     public void printStateArea(State state) {

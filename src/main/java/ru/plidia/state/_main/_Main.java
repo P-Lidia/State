@@ -2,6 +2,7 @@ package ru.plidia.state._main;
 
 
 import ru.plidia.state.entity.*;
+import ru.plidia.state.util.PrintRequest;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,8 +34,7 @@ public class _Main {
             regions.add(region);
         }
         Capital capital = new Capital("Capital", citizens.size(), citizens);
-        State.getInstance(regions, capital);
-
+        State state = State.getInstance();
 
     }
 }

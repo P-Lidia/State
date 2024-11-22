@@ -2,6 +2,7 @@ package ru.plidia.state.util;
 
 import ru.plidia.state.entity.Capital;
 import ru.plidia.state.entity.Region;
+import ru.plidia.state.entity.State;
 
 import java.util.List;
 
@@ -15,5 +16,8 @@ public class PrintRequest {
         System.out.println("Количество областей :" + regionList.size());
     }
 
+    public void printStateArea(State state) {
+        System.out.println("Площадь государства составляет" + state.STATEAREA);
+    }
 
 }

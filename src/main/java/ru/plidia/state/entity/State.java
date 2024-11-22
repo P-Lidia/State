@@ -3,15 +3,19 @@ package ru.plidia.state.entity;
 import java.util.List;
 
 public class State {
-    private static final State STATE = new State();
+    private static State instance;
     private List<Region> region;
     private Capital capital;
+    public final String STATEAREA = "500 000 км²";
 
     private State() {
     }
 
-    public static State getInstance(List<Region> region, Capital capital) {
-        return STATE;
+    public static State getInstance() {
+        if (instance == null) {
+            instance = new State();
+        }
+        return instance;
     }
 
     public void setRegion(List<Region> region) {

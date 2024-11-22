@@ -11,13 +11,17 @@ public class Citizen {
     private int age;
 
     public Citizen() {
+        id = (long) nextId.incrementAndGet();
+        name = generateName(name);
+        surname = generateSurname(surname);
+        age = generateAge(age);
     }
 
     public Citizen(String name, String surname, int age) {
         this.id = (long) nextId.incrementAndGet();
-        this.name = name;
-        this.surname = surname;
-        this.age = age;
+        this.name = generateName(name);
+        this.surname = generateSurname(surname);
+        this.age = generateAge(age);
     }
 
     public Long getId() {
@@ -51,8 +55,8 @@ public class Citizen {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("\n").append((long) nextId.incrementAndGet()).append(" - ").append(generateName(name))
-                .append(" ").append(generateSurname(surname)).append(", ").append(generateAge(age));
+        sb.append("\n").append(id).append(" - ").append(name)
+                .append(" ").append(surname).append(", ").append(age);
         return sb.toString();
     }
 
@@ -69,7 +73,7 @@ public class Citizen {
         return sb.toString();
     }
 
-    public static String generateName(String name) {
+    public String generateName(String name) {
         Random random = new Random();
         StringBuilder sb = new StringBuilder(6);
         for (int i = 0; i < 1; i++) {
@@ -82,6 +86,8 @@ public class Citizen {
     }
 
     int generateAge(int age) {
-        return age = (int) (Math.random() * 100);
+        return (int) (Math.random() * 100);
     }
+
+
 }

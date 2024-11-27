@@ -1,8 +1,6 @@
 package ru.plidia.state.service;
 
-import ru.plidia.state.entity.Capital;
 import ru.plidia.state.entity.Citizen;
-import ru.plidia.state.entity.Region;
 import ru.plidia.state.entity.State;
 
 import java.util.ArrayList;
@@ -21,7 +19,7 @@ public class PrintRequest {
     }
 
     public void printStateArea(State state) {
-        System.out.println("Площадь государства составляет" + state.STATEAREA);
+        System.out.println("Площадь государства составляет " + state.STATEAREA);
     }
 
     public void averageCitizenAge(List<Citizen> citizenList) {
@@ -66,6 +64,4 @@ public class PrintRequest {
         }
         System.out.println("Список жителей, чьи имена состоят из " + num + " букв:" + citizenNames);
     }
-
-
 }

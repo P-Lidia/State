@@ -11,10 +11,6 @@ public class Citizen {
     private int age;
 
     public Citizen() {
-        id = (long) nextId.incrementAndGet();
-        name = generateName(name);
-        surname = generateSurname(surname);
-        age = generateAge(age);
     }
 
     public Citizen(String name, String surname, int age) {

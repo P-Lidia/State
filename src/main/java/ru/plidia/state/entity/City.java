@@ -1,20 +1,21 @@
 package ru.plidia.state.entity;
 
+
 import java.util.List;
 import java.util.Random;
 
 public class City {
     private String name;
     private int populationSize;
-    private List<Citizen> citizen;
+    private List<Citizen> citizenList;
 
     public City() {
     }
 
-    public City(String name, int populationSize, List<Citizen> citizen) {
-        this.name = name;
+    public City(String name, int populationSize, List<Citizen> citizenList) {
+        this.name = generateName(name);
         this.populationSize = populationSize;
-        this.citizen = citizen;
+        this.citizenList = citizenList;
     }
 
     public void setName(String name) {
@@ -33,24 +34,24 @@ public class City {
         return populationSize;
     }
 
-    public void setCitizen(List<Citizen> citizen) {
-        this.citizen = citizen;
+    public void setCitizenList(List<Citizen> citizenList) {
+        this.citizenList = citizenList;
     }
 
-    public List<Citizen> getCitizen() {
-        return citizen;
+    public List<Citizen> getCitizenList() {
+        return citizenList;
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("В городе ").append(generateName(name)).append(" проживает ")
+        sb.append("В городе ").append(name).append(" проживает ")
                 .append(populationSize)
-                .append(" жителей: ").append(citizen).append("\n");
+                .append(" жителей: ").append(citizenList).append("\n");
         return sb.toString();
     }
 
-    public static String generateName(String name) {
+    public String generateName(String name) {
         Random random = new Random();
         StringBuilder sb = new StringBuilder(8);
         for (int i = 0; i < 1; i++) {

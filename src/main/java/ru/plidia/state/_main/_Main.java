@@ -7,41 +7,62 @@ import ru.plidia.state.util.Menu;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class _Main {
     public static void main(String[] args) {
 
-        List<Citizen> citizens = Stream.generate(Citizen::new)
-                .limit(1000).collect(Collectors.toList());
-
-        City city = new City("Asdsds", citizens.size(), citizens);
-        List<City> cities = new ArrayList<>();
-        int counter = (int) (Math.random() * 10);
-        for (int i = 0; i <= counter; i++) {
-            cities.add(city);
+        List<Citizen> citizenList = new ArrayList<>();
+        for (int i = 0; i < (int) (1000 + Math.random() * 2000); i++) {
+            citizenList.add(new Citizen("", "", 34));
         }
 
-        District district = new District("Sfdfdf", cities.size(), cities);
-        List<District> districts = new ArrayList<>();
-        int count = (int) (Math.random() * 4);
-        for (int i = 0; i <= count; i++) {
-            districts.add(district);
+        List<City> cityList = new ArrayList<>(10);
+        int firstCitizenNum = citizenList.size() / 10;
+        int endCitizenNum = firstCitizenNum;
+        int i = 0;
+        for (int iCity = 0; iCity < 10; iCity++) {
+            List<Citizen> citizen = new ArrayList<>();
+            while (i < firstCitizenNum && i < citizenList.size()) {
+                citizen.add(citizenList.get(i));
+                i++;
+            }
+            cityList.add(new City("", citizen.size(), citizen));
+            i = firstCitizenNum;
+            firstCitizenNum = firstCitizenNum + endCitizenNum;
         }
-        Region region = new Region("Ysdfc", districts.size(), districts);
-        List<Region> regions = new ArrayList<>();
-        count = (int) (Math.random() * 2);
-        for (int i = 0; i <= count; i++) {
-            regions.add(region);
+
+        List<District> districtList = new ArrayList<>(5);
+        int cityNumber = 0;
+        for (int iDist = 0; iDist < 5; iDist++) {
+            List<City> cities = new ArrayList<>();
+            for (int iCity = cityNumber; iCity <= cityNumber + 1; iCity++) {
+                cities.add(cityList.get(iCity));
+            }
+            districtList.add(new District("", cities.size(), cities));
+            cityNumber = cityNumber + 2;
         }
-        Capital capital = new Capital("Capital", citizens.size(), citizens);
+
+        List<Region> regionList = new ArrayList<>(2);
+        int firstDistrictNum = 0;
+        int endDistrictNum = 2;
+        for (int iReg = 0; iReg < 2; iReg++) {
+            List<District> districts = new ArrayList<>();
+            for (int iDist = firstDistrictNum; iDist < endDistrictNum; iDist++) {
+                districts.add(districtList.get(iDist));
+            }
+            regionList.add(new Region("", districts.size(), districts));
+            firstDistrictNum = firstDistrictNum + 2;
+            endDistrictNum = endDistrictNum + 3;
+        }
+        Capital capital = new Capital();
+        capital.setName(cityList.get(2).getName());
+        capital.setPopulationSize(cityList.get(2).getCitizenList().size());
+        capital.setCitizen(cityList.get(2).getCitizenList());
         State state = State.getInstance();
-
+        state.setCapital(capital);
+        state.setRegion(regionList);
         PrintRequest request = new PrintRequest();
         Menu menu = new Menu();
-        menu.menuChoice(request, state, citizens);
-
-
+        menu.menuChoice(request, state, citizenList);
     }
 }

@@ -22,16 +22,22 @@ public class Menu {
             switch (choice) {
                 case 1:
                     request.printCapital(state);
+                    break;
                 case 2:
                     request.printRegionNumber(state);
+                    break;
                 case 3:
                     request.printStateArea(state);
+                    break;
                 case 4:
                     request.averageCitizenAge(citizenList);
+                    break;
                 case 5:
                     request.printNamesBeginningWithN(citizenList);
+                    break;
                 case 6:
                     request.printNumberOfLetterName(citizenList);
+                    break;
             }
         }
     }

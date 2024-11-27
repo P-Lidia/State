@@ -6,7 +6,7 @@ public class State {
     private static State instance;
     private List<Region> region;
     private Capital capital;
-    public final String STATEAREA = "500 000 км²";
+    public final String STATEAREA = "200 000 км²";
 
     private State() {
     }

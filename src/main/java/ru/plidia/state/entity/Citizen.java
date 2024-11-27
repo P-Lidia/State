@@ -1,7 +1,10 @@
 package ru.plidia.state.entity;
 
-import java.util.Random;
+
 import java.util.concurrent.atomic.AtomicInteger;
+
+import static ru.plidia.state.service.RandomGeneration.generateAge;
+import static ru.plidia.state.service.RandomGeneration.generateName;
 
 public class Citizen {
     static AtomicInteger nextId = new AtomicInteger();
@@ -16,7 +19,7 @@ public class Citizen {
     public Citizen(String name, String surname, int age) {
         this.id = (long) nextId.incrementAndGet();
         this.name = generateName(name);
-        this.surname = generateSurname(surname);
+        this.surname = generateName(surname);
         this.age = generateAge(age);
     }
 
@@ -55,35 +58,4 @@ public class Citizen {
                 .append(" ").append(surname).append(", ").append(age);
         return sb.toString();
     }
-
-    public String generateSurname(String surname) {
-        Random random = new Random();
-        StringBuilder sb = new StringBuilder(10);
-        for (int i = 0; i < 1; i++) {
-            sb.append((char) ('A' + random.nextInt(25)));
-        }
-        for (int i = 1; i < sb.capacity(); i++) {
-            sb.append((char) ('a' + random.nextInt(25)));
-        }
-        return sb.toString();
-    }
-
-    public String generateName(String name) {
-        Random random = new Random();
-        int capacity = 5 + (int) (Math.random() * 5);
-        StringBuilder sb = new StringBuilder(capacity);
-        for (int i = 0; i < 1; i++) {
-            sb.append((char) ('A' + random.nextInt(25)));
-        }
-        for (int i = 1; i < sb.capacity(); i++) {
-            sb.append((char) ('a' + random.nextInt(25)));
-        }
-        return sb.toString();
-    }
-
-    int generateAge(int age) {
-        return (int) (Math.random() * 100);
-    }
-
-
 }

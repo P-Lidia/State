@@ -1,7 +1,8 @@
 package ru.plidia.state.entity;
 
 import java.util.List;
-import java.util.Random;
+
+import static ru.plidia.state.service.RandomGeneration.generateName;
 
 public class Region {
     private String name;
@@ -12,7 +13,7 @@ public class Region {
     }
 
     public Region(String name, int districtNumbers, List<District> district) {
-        this.name = name;
+        this.name = generateName(name);
         this.districtNumbers = districtNumbers;
         this.district = district;
     }
@@ -44,21 +45,9 @@ public class Region {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Регион - ").append(generateName(name)).append(", областей -  ")
+        sb.append("Регион - ").append(name).append(", областей -  ")
                 .append(districtNumbers).append(":").append("\n")
                 .append(district);
-        return sb.toString();
-    }
-
-    public static String generateName(String name) {
-        Random random = new Random();
-        StringBuilder sb = new StringBuilder(10);
-        for (int i = 0; i < 1; i++) {
-            sb.append((char) ('A' + random.nextInt(25)));
-        }
-        for (int i = 1; i < sb.capacity(); i++) {
-            sb.append((char) ('a' + random.nextInt(25)));
-        }
         return sb.toString();
     }
 }

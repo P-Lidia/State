@@ -2,7 +2,8 @@ package ru.plidia.state.entity;
 
 
 import java.util.List;
-import java.util.Random;
+
+import static ru.plidia.state.service.RandomGeneration.generateName;
 
 public class City {
     private String name;
@@ -48,18 +49,6 @@ public class City {
         sb.append("В городе ").append(name).append(" проживает ")
                 .append(populationSize)
                 .append(" жителей: ").append(citizenList).append("\n");
-        return sb.toString();
-    }
-
-    public String generateName(String name) {
-        Random random = new Random();
-        StringBuilder sb = new StringBuilder(8);
-        for (int i = 0; i < 1; i++) {
-            sb.append((char) ('A' + random.nextInt(25)));
-        }
-        for (int i = 1; i < sb.capacity(); i++) {
-            sb.append((char) ('a' + random.nextInt(25)));
-        }
         return sb.toString();
     }
 }

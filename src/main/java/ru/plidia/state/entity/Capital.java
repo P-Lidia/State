@@ -43,7 +43,7 @@ public class Capital {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Столица - ").append(name).append(". Население столицы ")
+        sb.append("Столица нашего государства - ").append(name).append(". Население столицы ")
                 .append(populationSize).append(" человек:")
                 .append("\n").append(citizen);
         return sb.toString();

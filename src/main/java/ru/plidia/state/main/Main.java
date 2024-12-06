@@ -1,14 +1,15 @@
-package ru.plidia.state._main;
+package ru.plidia.state.main;
 
 
 import ru.plidia.state.entity.*;
 import ru.plidia.state.service.PrintRequest;
 import ru.plidia.state.util.Menu;
+import ru.plidia.state.util.SortingCitizen;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class _Main {
+public class Main {
     public static void main(String[] args) {
 
         List<Citizen> citizenList = new ArrayList<>();
@@ -61,8 +62,10 @@ public class _Main {
         State state = State.getInstance();
         state.setCapital(capital);
         state.setRegion(regionList);
+        state.setCitizen(citizenList);
+        SortingCitizen sorting = new SortingCitizen();
         PrintRequest request = new PrintRequest();
         Menu menu = new Menu();
-        menu.menuChoice(request, state, citizenList);
+        menu.menuChoice(sorting, request, state);
     }
 }

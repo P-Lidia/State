@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Menu {
-    public void menuChoice(PrintRequest request, State state, List<Citizen> citizenList) {
+    public void menuChoice(SortingCitizen sorting, PrintRequest request, State state) {
         Scanner sc = new Scanner(System.in);
         while (true) {
             System.out.println("Нажмите 1, чтобы узнать информацию про столицу нашего государства");
@@ -30,13 +30,13 @@ public class Menu {
                     request.printStateArea(state);
                     break;
                 case 4:
-                    request.averageCitizenAge(citizenList);
+                    sorting.averageCitizenAge(state);
                     break;
                 case 5:
-                    request.printNamesBeginningWithN(citizenList);
+                    sorting.sortNamesBeginningWithN(state);
                     break;
                 case 6:
-                    request.printNumberOfLetterName(citizenList);
+                    sorting.SortNumberOfLetterName(state);
                     break;
             }
         }

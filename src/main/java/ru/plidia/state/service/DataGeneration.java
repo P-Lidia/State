@@ -1,10 +1,12 @@
 package ru.plidia.state.service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
-public class RandomGeneration {
+public class DataGeneration {
 
-    public static String generateName(String name) {
+    public static String generateRandomName(String name) {
         Random random = new Random();
         int capacity = 5 + (int) (Math.random() * 5);
         StringBuilder sb = new StringBuilder(capacity);
@@ -17,7 +19,16 @@ public class RandomGeneration {
         return sb.toString();
     }
 
-    public static int generateAge(int age) {
+    public static int generateRandomAge(int age) {
         return (int) (Math.random() * 100);
+    }
+
+
+    public <T> List<T> generateList(List<T> list,int firstNum, int endNum) {
+        List<T> objectList = new ArrayList<>();
+        for (int j = firstNum; j < endNum; j++) {
+            objectList.add(list.get(j));
+        }
+        return objectList;
     }
 }

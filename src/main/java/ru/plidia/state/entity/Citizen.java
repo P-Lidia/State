@@ -3,8 +3,8 @@ package ru.plidia.state.entity;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
-import static ru.plidia.state.service.RandomGeneration.generateAge;
-import static ru.plidia.state.service.RandomGeneration.generateName;
+import static ru.plidia.state.service.DataGeneration.generateRandomAge;
+import static ru.plidia.state.service.DataGeneration.generateRandomName;
 
 public class Citizen {
     static AtomicInteger nextId = new AtomicInteger();
@@ -18,9 +18,9 @@ public class Citizen {
 
     public Citizen(String name, String surname, int age) {
         this.id = (long) nextId.incrementAndGet();
-        this.name = generateName(name);
-        this.surname = generateName(surname);
-        this.age = generateAge(age);
+        this.name = generateRandomName(name);
+        this.surname = generateRandomName(surname);
+        this.age = generateRandomAge(age);
     }
 
     public Long getId() {

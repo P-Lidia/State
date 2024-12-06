@@ -2,7 +2,7 @@ package ru.plidia.state.entity;
 
 import java.util.List;
 
-import static ru.plidia.state.service.RandomGeneration.generateName;
+import static ru.plidia.state.service.DataGeneration.generateRandomName;
 
 public class District {
 
@@ -14,7 +14,7 @@ public class District {
     }
 
     public District(String name, int cityNumbers, List<City> city) {
-        this.name = generateName(name);
+        this.name = generateRandomName(name);
         this.cityNumbers = cityNumbers;
         this.city = city;
     }

@@ -1,10 +1,8 @@
-package ru.plidia.state.util;
+package ru.plidia.stateapp.util;
 
-import ru.plidia.state.entity.Citizen;
-import ru.plidia.state.entity.State;
-import ru.plidia.state.service.PrintRequest;
+import ru.plidia.stateapp.entity.State;
+import ru.plidia.stateapp.service.PrintRequest;
 
-import java.util.List;
 import java.util.Scanner;
 
 public class Menu {
@@ -30,13 +28,13 @@ public class Menu {
                     request.printStateArea(state);
                     break;
                 case 4:
-                    sorting.averageCitizenAge(state);
+                    request.printSortResult(sorting.averageCitizenAge(state));
                     break;
                 case 5:
-                    sorting.sortNamesBeginningWithN(state);
+                    request.printSortResult(sorting.sortNamesBeginningWithN(state));
                     break;
                 case 6:
-                    sorting.SortNumberOfLetterName(state);
+                    request.printSortResult(sorting.SortNumberOfLetterName(state));
                     break;
             }
         }

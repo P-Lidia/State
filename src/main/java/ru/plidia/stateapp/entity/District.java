@@ -1,14 +1,15 @@
-package ru.plidia.state.entity;
+package ru.plidia.stateapp.entity;
 
 import java.util.List;
 
-import static ru.plidia.state.service.DataGeneration.generateRandomName;
+import static ru.plidia.stateapp.service.DataGeneration.generateRandomName;
 
 public class District {
 
     private String name;
     private int cityNumbers;
     private List<City> city;
+    public static final int DISTRICT_NUMBER = 6;
 
     public District() {
     }

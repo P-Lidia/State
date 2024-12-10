@@ -1,10 +1,10 @@
-package ru.plidia.state.entity;
+package ru.plidia.stateapp.entity;
 
 
 import java.util.concurrent.atomic.AtomicInteger;
 
-import static ru.plidia.state.service.DataGeneration.generateRandomAge;
-import static ru.plidia.state.service.DataGeneration.generateRandomName;
+import static ru.plidia.stateapp.service.DataGeneration.generateRandomAge;
+import static ru.plidia.stateapp.service.DataGeneration.generateRandomName;
 
 public class Citizen {
     static AtomicInteger nextId = new AtomicInteger();

@@ -1,4 +1,4 @@
-package ru.plidia.state.entity;
+package ru.plidia.stateapp.entity;
 
 import java.util.List;
 
@@ -45,7 +45,7 @@ public class Capital {
         StringBuilder sb = new StringBuilder();
         sb.append("Столица нашего государства - ").append(name).append(". Население столицы ")
                 .append(populationSize).append(" человек:")
-                .append("\n").append(citizen);
+                .append("\n").append(citizen).append("\n");
         return sb.toString();
     }
 }

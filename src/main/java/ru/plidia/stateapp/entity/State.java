@@ -1,4 +1,4 @@
-package ru.plidia.state.entity;
+package ru.plidia.stateapp.entity;
 
 import java.util.List;
 

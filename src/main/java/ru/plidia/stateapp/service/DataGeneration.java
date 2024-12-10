@@ -1,4 +1,4 @@
-package ru.plidia.state.service;
+package ru.plidia.stateapp.service;
 
 import java.util.ArrayList;
 import java.util.List;

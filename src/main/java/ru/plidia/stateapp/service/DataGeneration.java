@@ -23,12 +23,12 @@ public class DataGeneration {
         return (int) (Math.random() * 100);
     }
 
-
     public <T> List<T> generateList(List<T> list, int firstNum, int endNum) {
         List<T> objectList = new ArrayList<>();
         for (int j = firstNum; j < endNum; j++) {
             objectList.add(list.get(j));
         }
         return objectList;
+
     }
 }

@@ -8,7 +8,6 @@ import ru.plidia.stateapp.entity.Citizen;
 import ru.plidia.stateapp.entity.State;
 
 import java.io.ByteArrayInputStream;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -61,10 +60,10 @@ public class SortingCitizenTest {
     }
 
     @Test(dataProvider = "sorting")
-    public void rightSortNameOfLetterNumber(State state) {
+    public void rightSortNamesByFirstLetter(State state) {
         ByteArrayInputStream testIn = new ByteArrayInputStream("M".getBytes());
         System.setIn(testIn);
-        String expected = "Список жителей, чьи имена начинаются на " + "M" + ": " + "Miuyfjdk" + "\n " + "\n";
+        String expected = "Список жителей, чьи имена начинаются на M: Miuyfjdk" + "\n " + "\n";
         String actual = sortTest.sortNamesByFirstLetter(state);
         Assert.assertEquals(actual, expected, "ошибка");
     }

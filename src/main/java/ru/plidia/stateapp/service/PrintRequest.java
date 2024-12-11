@@ -17,7 +17,7 @@ public class PrintRequest {
     }
 
     public void printStateArea(State state) {
-        System.out.println("Площадь государства составляет " + state.STATEAREA  + "\n");
+        System.out.println("Площадь государства составляет " + state.STATEAREA + "\n");
     }
 
     public static void printSortResult(String result) {

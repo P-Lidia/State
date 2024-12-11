@@ -24,7 +24,7 @@ public class DataGeneration {
     }
 
 
-    public <T> List<T> generateList(List<T> list,int firstNum, int endNum) {
+    public <T> List<T> generateList(List<T> list, int firstNum, int endNum) {
         List<T> objectList = new ArrayList<>();
         for (int j = firstNum; j < endNum; j++) {
             objectList.add(list.get(j));

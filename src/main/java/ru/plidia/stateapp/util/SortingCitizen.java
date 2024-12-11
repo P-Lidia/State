@@ -16,7 +16,7 @@ public class SortingCitizen {
         return result;
     }
 
-    public String sortNamesBeginningWithN(State state) {
+    public String sortNamesByFirstLetter(State state) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Введите первую букву имени для поиска жителей");
         char ch = sc.next().charAt(0);
@@ -30,20 +30,19 @@ public class SortingCitizen {
             if (str.charAt(0) == ch) {
                 sb.append(str).append("\n ");
             }
-
         }
         String result = "Список жителей, чьи имена начинаются на " + ch + ": " + sb + "\n";
         return result;
     }
 
-    public String SortNumberOfLetterName(State state) {
-        String result;
-        StringBuilder sb = new StringBuilder();
+    public String sortNameOfLetterNumbers(State state) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Введите число от 5 до 10");
         int num = sc.nextInt();
+        String result;
         if (num >= 5 && num <= 10) {
             int size = state.getCitizen().size();
+            StringBuilder sb = new StringBuilder();
             for (int i = 0; i < size; i++) {
                 String str = state.getCitizen().get(i).getName();
                 if (num == str.length()) {
@@ -51,7 +50,7 @@ public class SortingCitizen {
                 }
                 sb.toString();
             }
-            result = "Список жителей, чьи имена состоят из " + num + " букв:" + sb + "\n";
+            result = "Список жителей, чьи имена состоят из " + num + " букв: " + sb + "\n";
         } else {
             result = "Ввели не корректное значение, попробуйте сделать запрос ещё раз." + "\n";
         }

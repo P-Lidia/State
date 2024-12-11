@@ -31,10 +31,10 @@ public class Menu {
                     request.printSortResult(sorting.averageCitizenAge(state));
                     break;
                 case 5:
-                    request.printSortResult(sorting.sortNamesBeginningWithN(state));
+                    request.printSortResult(sorting.sortNamesByFirstLetter(state));
                     break;
                 case 6:
-                    request.printSortResult(sorting.SortNumberOfLetterName(state));
+                    request.printSortResult(sorting.sortNameOfLetterNumbers(state));
                     break;
             }
         }

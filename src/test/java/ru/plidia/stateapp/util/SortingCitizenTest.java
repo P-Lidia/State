@@ -60,10 +60,19 @@ public class SortingCitizenTest {
     }
 
     @Test(dataProvider = "sorting")
-    public void rightSortNamesByFirstLetter(State state) {
+    public void rightSortNamesByFirstLetter_UpperCase(State state) {
         ByteArrayInputStream testIn = new ByteArrayInputStream("M".getBytes());
         System.setIn(testIn);
         String expected = "Список жителей, чьи имена начинаются на M: \n" + "Miuyfjdk" + "\n";
+        String actual = sortTest.sortNamesByFirstLetter(state);
+        Assert.assertEquals(actual, expected, "ошибка");
+    }
+
+    @Test(dataProvider = "sorting")
+    public void rightSortNamesByFirstLetter_LowerCase(State state) {
+        ByteArrayInputStream testIn = new ByteArrayInputStream("y".getBytes());
+        System.setIn(testIn);
+        String expected = "Список жителей, чьи имена начинаются на Y: \n" + "Ydddhgf" + "\n";
         String actual = sortTest.sortNamesByFirstLetter(state);
         Assert.assertEquals(actual, expected, "ошибка");
     }

@@ -24,35 +24,32 @@ public class Main {
         DataGeneration generation = new DataGeneration();
         List<City> cityList = new ArrayList<>();
         int citizenNum = citizenList.size() / CITY_NUMBER;
-        int firstCitizen = 0;
-        int endCitizen = citizenNum;
-        for (int i = 0; i < 12; i++) {
-            List<Citizen> citizens = generation.generateList(citizenList, firstCitizen, citizenNum);
-            cityList.add(new City("", citizens.size(), citizens));
-            firstCitizen = citizenNum;
-            citizenNum = citizenNum + endCitizen;
+        for (int i = 0, j = 0; i < CITY_NUMBER; i++) {
+            cityList.add(new City("",
+                    citizenList.size() / CITY_NUMBER,
+                    (generation.generateList(citizenList, citizenNum, j))));
+            j = citizenNum;
+            citizenNum = citizenNum + citizenList.size() / CITY_NUMBER;
         }
 
         List<District> districtList = new ArrayList<>();
         int citiesNum = cityList.size() / DISTRICT_NUMBER;
-        int firstCity = 0;
-        int endCity = citiesNum;
-        for (int i = 0; i < 6; i++) {
-            List<City> cities = generation.generateList(cityList, firstCity, citiesNum);
-            districtList.add(new District("", cities.size(), cities));
-            firstCity = citiesNum;
-            citiesNum = citiesNum + endCity;
+        for (int i = 0, j = 0; i < DISTRICT_NUMBER; i++) {
+            districtList.add(new District("",
+                    cityList.size() / DISTRICT_NUMBER,
+                    (generation.generateList(cityList, citiesNum, j))));
+            j = citiesNum;
+            citiesNum = citiesNum + cityList.size() / DISTRICT_NUMBER;
         }
 
         List<Region> regionList = new ArrayList<>();
         int districtsNum = districtList.size() / REGION_NUMBER;
-        int firstDistrict = 0;
-        int endDistrict = districtsNum;
-        for (int i = 0; i < 3; i++) {
-            List<District> districts = generation.generateList(districtList, firstDistrict, districtsNum);
-            regionList.add(new Region("", districts.size(), districts));
-            firstDistrict = districtsNum;
-            districtsNum = districtsNum + endDistrict;
+        for (int i = 0, j = 0; i < REGION_NUMBER; i++) {
+            regionList.add(new Region("",
+                    districtList.size() / REGION_NUMBER,
+                    (generation.generateList(districtList, districtsNum, j))));
+            j = districtsNum;
+            districtsNum = districtsNum + districtList.size() / REGION_NUMBER;
         }
 
         Capital capital = new Capital();

@@ -5,7 +5,7 @@ import ru.plidia.stateapp.entity.*;
 import ru.plidia.stateapp.service.DataGeneration;
 import ru.plidia.stateapp.service.PrintRequest;
 import ru.plidia.stateapp.util.Menu;
-import ru.plidia.stateapp.util.SortingCitizen;
+import ru.plidia.stateapp.util.OperationWithCitizenList;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -60,7 +60,7 @@ public class Main {
         state.setCapital(capital);
         state.setRegion(regionList);
         state.setCitizen(citizenList);
-        SortingCitizen sorting = new SortingCitizen();
+        OperationWithCitizenList sorting = new OperationWithCitizenList();
         PrintRequest request = new PrintRequest();
         Menu menu = new Menu();
         menu.menuChoice(sorting, request, state);

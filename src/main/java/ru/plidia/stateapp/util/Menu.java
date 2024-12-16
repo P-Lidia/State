@@ -6,7 +6,7 @@ import ru.plidia.stateapp.service.PrintRequest;
 import java.util.Scanner;
 
 public class Menu {
-    public void menuChoice(SortingCitizen sorting, PrintRequest request, State state) {
+    public void menuChoice(OperationWithCitizenList sorting, PrintRequest request, State state) {
         Scanner sc = new Scanner(System.in);
         while (true) {
             System.out.println("Нажмите 1, чтобы узнать информацию про столицу нашего государства");

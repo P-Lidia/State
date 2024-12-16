@@ -4,7 +4,7 @@ import ru.plidia.stateapp.entity.State;
 
 import java.util.Scanner;
 
-public class SortingCitizen {
+public class OperationWithCitizenList {
 
     public String averageCitizenAge(State state) {
         int allCitizenAge = 0;
@@ -12,8 +12,11 @@ public class SortingCitizen {
         for (int i = 0; i < size; i++) {
             allCitizenAge = allCitizenAge + state.getCitizen().get(i).getAge();
         }
-        String result = "Всего жителей - " + size + " человек, средний возраст = " + allCitizenAge / size + "\n";
-        return result;
+        StringBuilder sb = new StringBuilder();
+        sb.append("Всего жителей - ").append(size)
+                .append(" человек, средний возраст = ")
+                .append(allCitizenAge / size).append("\n");
+        return sb.toString();
     }
 
     public String sortNamesByFirstLetter(State state) {

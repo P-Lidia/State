@@ -14,7 +14,7 @@ import java.util.List;
 
 public class SortingCitizenTest {
 
-    private SortingCitizen sortTest = new SortingCitizen();
+    private OperationWithCitizenList sortTest = new OperationWithCitizenList();
     private static State instance;
     private List<Citizen> citizen;
     private static Citizen citizen1 = new Citizen();

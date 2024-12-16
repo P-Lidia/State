@@ -51,7 +51,6 @@ public class Main {
             j = districtsNum;
             districtsNum = districtsNum + districtList.size() / REGION_NUMBER;
         }
-
         Capital capital = new Capital();
         capital.setName(cityList.get(2).getName());
         capital.setPopulationSize(cityList.get(2).getCitizenList().size());

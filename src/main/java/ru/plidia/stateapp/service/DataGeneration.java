@@ -5,10 +5,9 @@ import java.util.List;
 import java.util.Random;
 
 public class DataGeneration {
-
     public static String generateRandomName(String name) {
         Random random = new Random();
-        int capacity = 5 + (int) (Math.random() * 5);
+        int capacity = 5 + (int) (Math.random() * 6);
         StringBuilder sb = new StringBuilder(capacity);
         for (int i = 0; i < 1; i++) {
             sb.append((char) ('A' + random.nextInt(25)));

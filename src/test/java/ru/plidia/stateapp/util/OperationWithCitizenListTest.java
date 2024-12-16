@@ -13,7 +13,6 @@ import java.util.List;
 
 
 public class OperationWithCitizenListTest {
-
     private OperationWithCitizenList sortTest = new OperationWithCitizenList();
     private static State instance;
     private List<Citizen> citizen;

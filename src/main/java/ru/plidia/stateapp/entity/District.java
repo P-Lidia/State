@@ -5,7 +5,6 @@ import java.util.List;
 import static ru.plidia.stateapp.service.DataGeneration.generateRandomName;
 
 public class District {
-
     private String name;
     private int cityNumbers;
     private List<City> city;

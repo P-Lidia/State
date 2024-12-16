@@ -20,20 +20,24 @@ public class OperationWithCitizenList {
     }
 
     public String sortNamesByFirstLetter(State state) {
+        StringBuilder sb = new StringBuilder();
         Scanner sc = new Scanner(System.in);
         System.out.println("Введите первую букву имени для поиска жителей");
         char ch = sc.next().charAt(0);
         if (Character.isLowerCase(ch)) {
             ch = Character.toUpperCase(ch);
         }
-        int size = state.getCitizen().size();
-        StringBuilder sb = new StringBuilder();
-        sb.append("Список жителей, чьи имена начинаются на ").append(ch).append(": \n");
-        for (int i = 0; i < size; i++) {
-            String str = state.getCitizen().get(i).getName();
-            if (str.charAt(0) == ch) {
-                sb.append(str).append("\n");
+        if (ch > 'A' && ch < 'Z') {
+            int size = state.getCitizen().size();
+            sb.append("Список жителей, чьи имена начинаются на ").append(ch).append(": \n");
+            for (int i = 0; i < size; i++) {
+                String str = state.getCitizen().get(i).getName();
+                if (str.charAt(0) == ch) {
+                    sb.append(state.getCitizen().get(i));
+                }
             }
+        } else {
+            sb.append("Ввели некорректное значение, попробуйте сделать запрос ещё раз.").append("\n");
         }
         return sb.toString();
     }
@@ -53,7 +57,7 @@ public class OperationWithCitizenList {
                 }
             }
         } else {
-            sb.append("Ввели не корректное значение, попробуйте сделать запрос ещё раз. \n");
+            sb.append("Ввели некорректное значение, попробуйте сделать запрос ещё раз. \n");
         }
         return sb.toString();
     }

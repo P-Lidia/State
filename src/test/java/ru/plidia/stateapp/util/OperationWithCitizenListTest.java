@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class SortingCitizenTest {
+public class OperationWithCitizenListTest {
 
     private OperationWithCitizenList sortTest = new OperationWithCitizenList();
     private static State instance;
@@ -46,7 +46,7 @@ public class SortingCitizenTest {
     }
 
     @DataProvider(name = "sorting")
-    public static Object[][] createDataToCalculateAverage() {
+    public static Object[][] createDataToSorting() {
         return new Object[][]{
                 {instance}
         };
@@ -59,20 +59,39 @@ public class SortingCitizenTest {
         Assert.assertEquals(actual, expected, "ошибка");
     }
 
-    @Test(dataProvider = "sorting")
-    public void rightSortNamesByFirstLetter_UpperCase(State state) {
-        ByteArrayInputStream testIn = new ByteArrayInputStream("M".getBytes());
+    @DataProvider(name = "UpperOrLowerCase")
+    public static Object[][] createDataToSorting_UpperOrLowerCase() {
+        return new Object[][]{
+                {instance, "m"},
+                {instance, "M"}
+        };
+    }
+
+    @Test(dataProvider = "UpperOrLowerCase")
+    public void rightSortNamesByFirstLetter_UpperOrLowerCase(State state, String str) {
+        ByteArrayInputStream testIn = new ByteArrayInputStream(str.getBytes());
         System.setIn(testIn);
-        String expected = "Список жителей, чьи имена начинаются на M: \n" + "Miuyfjdk" + "\n";
+        String expected = "Список жителей, чьи имена начинаются на M: \n" + citizen4;
         String actual = sortTest.sortNamesByFirstLetter(state);
         Assert.assertEquals(actual, expected, "ошибка");
     }
 
-    @Test(dataProvider = "sorting")
-    public void rightSortNamesByFirstLetter_LowerCase(State state) {
-        ByteArrayInputStream testIn = new ByteArrayInputStream("y".getBytes());
+    @DataProvider(name = "wrongSymbol")
+    public static Object[][] createDataToSortingWrongSymbol() {
+        return new Object[][]{
+                {instance, "7"},
+                {instance, "-1"},
+                {instance, "-"},
+                {instance, "."},
+                {instance, "]"}
+        };
+    }
+
+    @Test(dataProvider = "wrongSymbol")
+    public void sortNamesByFirstLetter_WrongSymbol(State state, String str) {
+        ByteArrayInputStream testIn = new ByteArrayInputStream(str.getBytes());
         System.setIn(testIn);
-        String expected = "Список жителей, чьи имена начинаются на Y: \n" + "Ydddhgf" + "\n";
+        String expected = "Ввели некорректное значение, попробуйте сделать запрос ещё раз.\n";
         String actual = sortTest.sortNamesByFirstLetter(state);
         Assert.assertEquals(actual, expected, "ошибка");
     }

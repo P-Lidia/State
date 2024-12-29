@@ -59,9 +59,7 @@ public class Main {
         state.setCapital(capital);
         state.setRegion(regionList);
         state.setCitizen(citizenList);
-        OperationWithCitizenList sorting = new OperationWithCitizenList();
-        PrintRequest request = new PrintRequest();
         Menu menu = new Menu();
-        menu.menuChoice(sorting, request, state);
+        menu.menuChoice(state);
     }
 }

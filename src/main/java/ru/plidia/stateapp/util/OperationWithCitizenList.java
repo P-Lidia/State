@@ -1,16 +1,38 @@
 package ru.plidia.stateapp.util;
 
+import ru.plidia.stateapp.entity.Citizen;
 import ru.plidia.stateapp.entity.State;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class OperationWithCitizenList {
 
+    public List<Citizen> creatAllCitizenList(State state) {
+        List<Citizen> allCitizenList = new ArrayList<>();
+        int sizeRegion = state.getRegion().size();
+        for (int i = 0; i < sizeRegion; i++) {
+            int sizeDistrict = state.getRegion().get(i).getDistrict().size();
+            for (int j = 0; j < sizeDistrict; j++) {
+                int sizeCity = state.getRegion().get(i).getDistrict().get(j).getCity().size();
+                for (int k = 0; k < sizeCity; k++) {
+                    int sizeCitizen = state.getRegion().get(i).getDistrict().get(j).getCity().get(k).getCitizenList().size();
+                    for (int l = 0; l < sizeCitizen; l++) {
+                        allCitizenList.add(state.getRegion().get(i).getDistrict().get(j).getCity().get(k).getCitizenList().get(l));
+                    }
+                }
+            }
+        }
+        return allCitizenList;
+    }
+
     public String averageCitizenAge(State state) {
+        List<Citizen> citizenList = creatAllCitizenList(state);
         int allCitizenAge = 0;
-        int size = state.getCitizen().size();
+        int size = citizenList.size();
         for (int i = 0; i < size; i++) {
-            allCitizenAge = allCitizenAge + state.getCitizen().get(i).getAge();
+            allCitizenAge = allCitizenAge + citizenList.get(i).getAge();
         }
         StringBuilder sb = new StringBuilder();
         sb.append("Всего жителей - ").append(size)
@@ -20,6 +42,7 @@ public class OperationWithCitizenList {
     }
 
     public String sortNamesByFirstLetter(State state) {
+        List<Citizen> citizenList = creatAllCitizenList(state);
         StringBuilder sb = new StringBuilder();
         Scanner sc = new Scanner(System.in);
         System.out.println("Введите первую букву имени для поиска жителей");
@@ -28,12 +51,12 @@ public class OperationWithCitizenList {
             ch = Character.toUpperCase(ch);
         }
         if (ch > 'A' && ch < 'Z') {
-            int size = state.getCitizen().size();
+            int size = citizenList.size();
             sb.append("Список жителей, чьи имена начинаются на ").append(ch).append(": \n");
             for (int i = 0; i < size; i++) {
-                String str = state.getCitizen().get(i).getName();
+                String str = citizenList.get(i).getName();
                 if (str.charAt(0) == ch) {
-                    sb.append(state.getCitizen().get(i));
+                    sb.append(citizenList.get(i));
                 }
             }
         } else {
@@ -43,17 +66,18 @@ public class OperationWithCitizenList {
     }
 
     public String sortNameOfLetterNumbers(State state) {
+        List<Citizen> citizenList = creatAllCitizenList(state);
         Scanner sc = new Scanner(System.in);
         System.out.println("Введите число от 5 до 10");
         int num = sc.nextInt();
         StringBuilder sb = new StringBuilder();
         if (num >= 5 && num <= 10) {
-            int size = state.getCitizen().size();
+            int size = citizenList.size();
             sb.append("Список жителей, чьи имена состоят из ").append(num).append(" букв: \n");
             for (int i = 0; i < size; i++) {
-                String str = state.getCitizen().get(i).getName();
+                String str = citizenList.get(i).getName();
                 if (num == str.length()) {
-                    sb.append(state.getCitizen().get(i));
+                    sb.append(citizenList.get(i));
                 }
             }
         } else {

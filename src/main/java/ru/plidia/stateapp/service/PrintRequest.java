@@ -9,10 +9,9 @@ public class PrintRequest {
 
     public void printRegionNumber(State state) {
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < state.getRegion().size() - 1; i++) {
+        for (int i = 0; i < state.getRegion().size(); i++) {
             sb.append(state.getRegion().get(i).getName()).append(", ");
         }
-        sb.append(state.getRegion().get(state.getRegion().size() - 1).getName()).append(".");
         System.out.println("В нашем государстве " + state.getRegion().size() + " области: " + sb + "\n");
     }
 

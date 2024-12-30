@@ -5,7 +5,6 @@ import java.util.List;
 public class State {
     private static State instance;
     private List<Region> region;
-    private List<Citizen> citizen;
     private Capital capital;
     public final String STATEAREA = "200 000 км²";
 
@@ -25,14 +24,6 @@ public class State {
 
     public List<Region> getRegion() {
         return region;
-    }
-
-    public void setCitizen(List<Citizen> citizen) {
-        this.citizen = citizen;
-    }
-
-    public List<Citizen> getCitizen() {
-        return citizen;
     }
 
     public void setCapital(Capital capital) {

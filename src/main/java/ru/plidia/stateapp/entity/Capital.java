@@ -4,15 +4,13 @@ import java.util.List;
 
 public class Capital {
     private String name;
-    private int populationSize;
     private List<Citizen> citizen;
 
     public Capital() {
     }
 
-    public Capital(String name, int populationSize, List<Citizen> citizen) {
+    public Capital(String name, List<Citizen> citizen) {
         this.name = name;
-        this.populationSize = populationSize;
         this.citizen = citizen;
     }
 
@@ -22,14 +20,6 @@ public class Capital {
 
     public String getName() {
         return name;
-    }
-
-    public void setPopulationSize(int populationSize) {
-        this.populationSize = populationSize;
-    }
-
-    public int getPopulationSize() {
-        return populationSize;
     }
 
     public void setCitizen(List<Citizen> citizen) {
@@ -44,7 +34,7 @@ public class Capital {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("Столица нашего государства - ").append(name).append(". Население столицы ")
-                .append(populationSize).append(" человек:")
+                .append(getCitizen().size()).append(" человек:")
                 .append("\n").append(citizen).append("\n");
         return sb.toString();
     }

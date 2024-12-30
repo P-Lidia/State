@@ -7,16 +7,13 @@ import static ru.plidia.stateapp.service.DataGeneration.generateRandomName;
 
 public class City {
     private String name;
-    private int populationSize;
-    public static final int CITY_NUMBER = 12;
     private List<Citizen> citizenList;
 
     public City() {
     }
 
-    public City(String name, int populationSize, List<Citizen> citizenList) {
+    public City(String name, List<Citizen> citizenList) {
         this.name = generateRandomName(name);
-        this.populationSize = populationSize;
         this.citizenList = citizenList;
     }
 
@@ -26,14 +23,6 @@ public class City {
 
     public String getName() {
         return name;
-    }
-
-    public void setPopulationSize(int populationSize) {
-        this.populationSize = populationSize;
-    }
-
-    public long getPopulationSize() {
-        return populationSize;
     }
 
     public void setCitizenList(List<Citizen> citizenList) {
@@ -48,7 +37,7 @@ public class City {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("В городе ").append(name).append(" проживает ")
-                .append(populationSize)
+                .append(citizenList.size())
                 .append(" жителей: ").append(citizenList).append("\n");
         return sb.toString();
     }

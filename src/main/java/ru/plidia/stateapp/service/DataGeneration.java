@@ -1,5 +1,9 @@
 package ru.plidia.stateapp.service;
 
+import ru.plidia.stateapp.entity.Citizen;
+import ru.plidia.stateapp.entity.City;
+import ru.plidia.stateapp.entity.District;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -22,11 +26,29 @@ public class DataGeneration {
         return (int) (Math.random() * 100);
     }
 
-    public <T> List<T> generateList(List<T> list, int num, int j) {
-        List<T> objectList = new ArrayList<>();
-        for (int i = j; i < num; i++) {
-            objectList.add(list.get(i));
+    public List<Citizen> generateCitizenList(Object o) {
+        List<Citizen> citizenList = new ArrayList<>();
+        for (int i = 0; i < (int) (1000 + Math.random() * 500); i++) {
+            citizenList.add(new Citizen("", "", 34));
         }
-        return objectList;
+        return citizenList;
+    }
+
+    public List<City> generateCityList(Object o) {
+        List<City> cityList = new ArrayList<>();
+        for (int i = 0; i < (int) (5 + Math.random() * 5); i++) {
+            cityList.add(new City("",
+                    generateCitizenList(new Citizen())));
+        }
+        return cityList;
+    }
+
+    public List<District> generateDistrictList(Object o) {
+        List<District> districtList = new ArrayList<>();
+        for (int i = 0; i < (int) (5 + Math.random() * 3); i++) {
+            districtList.add(new District("",
+                    generateCityList(new City())));
+        }
+        return districtList;
     }
 }

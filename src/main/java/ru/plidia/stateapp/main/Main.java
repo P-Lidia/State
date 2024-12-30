@@ -1,63 +1,30 @@
 package ru.plidia.stateapp.main;
 
 
-import ru.plidia.stateapp.entity.*;
+import ru.plidia.stateapp.entity.Capital;
+import ru.plidia.stateapp.entity.District;
+import ru.plidia.stateapp.entity.Region;
+import ru.plidia.stateapp.entity.State;
 import ru.plidia.stateapp.service.DataGeneration;
-import ru.plidia.stateapp.service.PrintRequest;
 import ru.plidia.stateapp.util.Menu;
-import ru.plidia.stateapp.util.OperationWithCitizenList;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static ru.plidia.stateapp.entity.City.CITY_NUMBER;
-import static ru.plidia.stateapp.entity.District.DISTRICT_NUMBER;
-import static ru.plidia.stateapp.entity.Region.REGION_NUMBER;
 
 public class Main {
     public static void main(String[] args) {
-        List<Citizen> citizenList = new ArrayList<>();
-        for (int i = 0; i < (int) (2000 + Math.random() * 500); i++) {
-            citizenList.add(new Citizen("", "", 34));
-        }
-
         DataGeneration generation = new DataGeneration();
-        List<City> cityList = new ArrayList<>();
-        int citizenNum = citizenList.size() / CITY_NUMBER;
-        for (int i = 0, j = 0; i < CITY_NUMBER; i++) {
-            cityList.add(new City("",
-                    citizenList.size() / CITY_NUMBER,
-                    (generation.generateList(citizenList, citizenNum, j))));
-            j = citizenNum;
-            citizenNum = citizenNum + citizenList.size() / CITY_NUMBER;
-        }
-
-        List<District> districtList = new ArrayList<>();
-        int citiesNum = cityList.size() / DISTRICT_NUMBER;
-        for (int i = 0, j = 0; i < DISTRICT_NUMBER; i++) {
-            districtList.add(new District("",
-                    cityList.size() / DISTRICT_NUMBER,
-                    (generation.generateList(cityList, citiesNum, j))));
-            j = citiesNum;
-            citiesNum = citiesNum + cityList.size() / DISTRICT_NUMBER;
-        }
-
         List<Region> regionList = new ArrayList<>();
-        int districtsNum = districtList.size() / REGION_NUMBER;
-        for (int i = 0, j = 0; i < REGION_NUMBER; i++) {
+        for (int i = 0; i < (int) (2 + Math.random() * 4); i++) {
             regionList.add(new Region("",
-                    districtList.size() / REGION_NUMBER,
-                    (generation.generateList(districtList, districtsNum, j))));
-            j = districtsNum;
-            districtsNum = districtsNum + districtList.size() / REGION_NUMBER;
+                    generation.generateDistrictList(new District())));
         }
-        Capital capital = new Capital(cityList.get(2).getName(),
-                cityList.get(2).getCitizenList().size(),
-                cityList.get(2).getCitizenList());
+        Capital capital = new Capital(regionList.get(1).getDistrict().get(1).getCity().get(2).getName(),
+                regionList.get(1).getDistrict().get(1).getCity().get(2).getCitizenList());
         State state = State.getInstance();
         state.setCapital(capital);
         state.setRegion(regionList);
-        state.setCitizen(citizenList);
         Menu menu = new Menu();
         menu.menuChoice(state);
     }

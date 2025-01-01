@@ -4,8 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import ru.plidia.stateapp.entity.Citizen;
-import ru.plidia.stateapp.entity.State;
+import ru.plidia.stateapp.entity.*;
 
 import java.io.ByteArrayInputStream;
 import java.util.ArrayList;
@@ -15,12 +14,18 @@ import java.util.List;
 public class OperationWithCitizenListTest {
     private OperationWithCitizenList sortTest = new OperationWithCitizenList();
     private static State instance;
-    private List<Citizen> citizen;
-    private static Citizen citizen1 = new Citizen();
-    private static Citizen citizen2 = new Citizen();
-    private static Citizen citizen3 = new Citizen();
-    private static Citizen citizen4 = new Citizen();
-    private static Citizen citizen5 = new Citizen();
+    private District district = new District();
+    private Region region = new Region();
+    private City city = new City();
+    private Citizen citizen1 = new Citizen();
+    private Citizen citizen2 = new Citizen();
+    private Citizen citizen3 = new Citizen();
+    private Citizen citizen4 = new Citizen();
+    private Citizen citizen5 = new Citizen();
+    private List<Region> regionList;
+    private List<District> districtList;
+    private List<City> cityList;
+    private List<Citizen> citizenList;
 
     @BeforeSuite
     public void setUp() {
@@ -35,13 +40,22 @@ public class OperationWithCitizenListTest {
         citizen3.setName("Ydddhgf");
         citizen4.setName("Miuyfjdk");
         citizen5.setName("Iujdfklsrt");
-        citizen = new ArrayList<>();
-        citizen.add(citizen1);
-        citizen.add(citizen2);
-        citizen.add(citizen3);
-        citizen.add(citizen4);
-        citizen.add(citizen5);
-        instance.setCitizen(citizen);
+        citizenList = new ArrayList<>();
+        citizenList.add(citizen1);
+        citizenList.add(citizen2);
+        citizenList.add(citizen3);
+        citizenList.add(citizen4);
+        citizenList.add(citizen5);
+        city.setCitizenList(citizenList);
+        cityList = new ArrayList<>();
+        cityList.add(city);
+        district.setCity(cityList);
+        districtList = new ArrayList<>();
+        districtList.add(district);
+        region.setDistrict(districtList);
+        regionList = new ArrayList<>();
+        regionList.add(region);
+        instance.setRegion(regionList);
     }
 
     @DataProvider(name = "sorting")

@@ -37,10 +37,10 @@ public class DataGeneration {
 
     public static String generateRandomName(String name) {
         Random random = new Random();
-        int capacity = 5 + (int) (Math.random() * 6);
-        StringBuilder sb = new StringBuilder(capacity);
+        StringBuilder sb = new StringBuilder();
         sb.append((char) ('A' + random.nextInt(25)));
-        for (int i = 0; i < sb.capacity(); i++) {
+        int size = 4 + (int) (Math.random() * 6);
+        for (int i = 0; i < size; i++) {
             sb.append((char) ('a' + random.nextInt(25)));
         }
         return sb.toString();

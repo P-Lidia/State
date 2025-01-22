@@ -6,8 +6,8 @@ import ru.plidia.stateapp.service.PrintRequest;
 import java.util.Scanner;
 
 public class Menu {
-    OperationWithCitizenList sorting = new OperationWithCitizenList();
-    PrintRequest request = new PrintRequest();
+    private final OperationWithCitizenList sorting = new OperationWithCitizenList();
+    private final PrintRequest request = new PrintRequest();
 
     public void menuChoice(State state) {
         Scanner sc = new Scanner(System.in);

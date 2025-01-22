@@ -10,12 +10,15 @@ import java.util.stream.Collectors;
 public class OperationWithCitizenList {
 
     public List<Citizen> creatAllCitizenList(State state) {
-        List<Citizen> allCitizenList = state.getRegion().stream()
+        List<Citizen> allCitizenList = state.getRegion()
+                .stream()
                 .flatMap(districts -> districts.getDistrict().stream())
                 .collect(Collectors.toList())
-                .stream().flatMap(city -> city.getCity().stream())
+                .stream()
+                .flatMap(city -> city.getCity().stream())
                 .collect(Collectors.toList())
-                .stream().flatMap(citizen -> citizen.getCitizenList().stream())
+                .stream()
+                .flatMap(citizen -> citizen.getCitizenList().stream())
                 .collect(Collectors.toList());
         return allCitizenList;
     }

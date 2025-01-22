@@ -12,7 +12,7 @@ import java.util.List;
 
 
 public class OperationWithCitizenListTest {
-    private OperationWithCitizenList sortTest = new OperationWithCitizenList();
+    private final OperationWithCitizenList sortTest = new OperationWithCitizenList();
     private static State instance;
     private District district = new District();
     private Region region = new Region();
@@ -22,10 +22,10 @@ public class OperationWithCitizenListTest {
     private Citizen citizen3 = new Citizen();
     private Citizen citizen4 = new Citizen();
     private Citizen citizen5 = new Citizen();
-    private List<Region> regionList;
-    private List<District> districtList;
-    private List<City> cityList;
-    private List<Citizen> citizenList;
+    private List<Region> regionList = new ArrayList<>();
+    private List<District> districtList = new ArrayList<>();
+    private List<City> cityList = new ArrayList<>();
+    private List<Citizen> citizenList = new ArrayList<>();
 
     @BeforeSuite
     public void setUp() {
@@ -40,20 +40,17 @@ public class OperationWithCitizenListTest {
         citizen3.setName("Ydddhgf");
         citizen4.setName("Miuyfjdk");
         citizen5.setName("Iujdfklsrt");
-        citizenList = new ArrayList<>();
         citizenList.add(citizen1);
         citizenList.add(citizen2);
         citizenList.add(citizen3);
         citizenList.add(citizen4);
         citizenList.add(citizen5);
         city.setCitizenList(citizenList);
-        cityList = new ArrayList<>();
         cityList.add(city);
         district.setCity(cityList);
         districtList = new ArrayList<>();
         districtList.add(district);
         region.setDistrict(districtList);
-        regionList = new ArrayList<>();
         regionList.add(region);
         instance.setRegion(regionList);
     }

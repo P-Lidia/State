@@ -19,7 +19,11 @@ public class PrintRequest {
         System.out.println("Площадь государства составляет " + state.STATEAREA + "\n");
     }
 
-    public static void printSortResult(String result) {
+    public void printSortResult(String result) {
         System.out.println(result);
+    }
+
+    public void printMessage() {
+        System.out.println("Информация не найдена");
     }
 }

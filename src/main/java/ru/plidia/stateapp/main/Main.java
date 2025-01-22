@@ -20,8 +20,21 @@ public class Main {
             regionList.add(new Region("",
                     generation.generateDistrictList(new District())));
         }
-        Capital capital = new Capital(regionList.get(1).getDistrict().get(1).getCity().get(2).getName(),
-                regionList.get(1).getDistrict().get(1).getCity().get(2).getCitizenList());
+        Capital capital = new Capital(
+                regionList
+                        .get(1)
+                        .getDistrict()
+                        .get(1)
+                        .getCity()
+                        .get(2)
+                        .getName(),
+                regionList
+                        .get(1).
+                        getDistrict()
+                        .get(1)
+                        .getCity()
+                        .get(2)
+                        .getCitizenList());
         State state = State.getInstance();
         state.setCapital(capital);
         state.setRegion(regionList);

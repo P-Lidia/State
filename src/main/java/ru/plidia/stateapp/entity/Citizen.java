@@ -1,7 +1,6 @@
 package ru.plidia.stateapp.entity;
 
 
-import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 
 import static ru.plidia.stateapp.service.DataGeneration.generateRandomAge;
@@ -55,8 +54,15 @@ public class Citizen {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("\n").append(id).append(" - ").append(name)
-                .append(" ").append(surname).append(", ").append(age);
-        return sb.toString();
+        return sb
+                .append("\n")
+                .append(id)
+                .append(" - ")
+                .append(name)
+                .append(" ")
+                .append(surname)
+                .append(", ")
+                .append(age)
+                .toString();
     }
 }

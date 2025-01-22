@@ -36,10 +36,15 @@ public class City {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("В городе ").append(name).append(" проживает ")
+        return sb
+                .append("В городе ")
+                .append(name)
+                .append(" проживает ")
                 .append(citizenList.size())
-                .append(" жителей: ").append(citizenList).append("\n");
-        return sb.toString();
+                .append(" жителей: ")
+                .append(citizenList)
+                .append("\n")
+                .toString();
     }
 }
 

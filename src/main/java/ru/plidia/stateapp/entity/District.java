@@ -35,9 +35,14 @@ public class District {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Область -  ").append(name)
-                .append(", городов - ").append(getCity().size())
-                .append(": ").append("\n").append(city);
-        return sb.toString();
+        return sb
+                .append("Область -  ")
+                .append(name)
+                .append(", городов - ")
+                .append(getCity().size())
+                .append(": ")
+                .append("\n")
+                .append(city)
+                .toString();
     }
 }

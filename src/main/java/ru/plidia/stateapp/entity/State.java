@@ -37,8 +37,7 @@ public class State {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(capital).append(region);
-        return sb.toString();
+        return sb.append(capital).append(region).toString();
     }
 }
 

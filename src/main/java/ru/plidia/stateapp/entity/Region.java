@@ -35,10 +35,14 @@ public class Region {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Регион - ").append(name)
-                .append(", областей -  ").append(getDistrict().size())
-                .append(":").append("\n")
-                .append(district);
-        return sb.toString();
+        return sb
+                .append("Регион - ")
+                .append(name)
+                .append(", областей -  ")
+                .append(getDistrict().size())
+                .append(":")
+                .append("\n")
+                .append(district)
+                .toString();
     }
 }

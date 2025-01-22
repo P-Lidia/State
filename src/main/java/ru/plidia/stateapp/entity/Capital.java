@@ -33,9 +33,15 @@ public class Capital {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Столица нашего государства - ").append(name).append(". Население столицы ")
-                .append(getCitizen().size()).append(" человек:")
-                .append("\n").append(citizen).append("\n");
-        return sb.toString();
+        return sb
+                .append("Столица нашего государства - ")
+                .append(name)
+                .append(". Население столицы ")
+                .append(getCitizen().size())
+                .append(" человек:")
+                .append("\n")
+                .append(citizen)
+                .append("\n")
+                .toString();
     }
 }

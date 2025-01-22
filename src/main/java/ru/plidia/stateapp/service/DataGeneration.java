@@ -9,23 +9,23 @@ import java.util.List;
 import java.util.Random;
 
 public class DataGeneration {
-    public List<District> generateDistrictList(Object o) {
+    public List<District> generateDistrictList() {
         List<District> districtList = new ArrayList<>();
         for (int i = 0; i < (int) (5 + Math.random() * 3); i++) {
-            districtList.add(new District("", generateCityList(new City())));
+            districtList.add(new District("", generateCityList()));
         }
         return districtList;
     }
 
-    public List<City> generateCityList(Object o) {
+    public List<City> generateCityList() {
         List<City> cityList = new ArrayList<>();
         for (int i = 0; i < (int) (5 + Math.random() * 5); i++) {
-            cityList.add(new City("", generateCitizenList(new Citizen())));
+            cityList.add(new City("", generateCitizenList()));
         }
         return cityList;
     }
 
-    public List<Citizen> generateCitizenList(Object o) {
+    public List<Citizen> generateCitizenList() {
         List<Citizen> citizenList = new ArrayList<>();
         for (int i = 0; i < (int) (1000 + Math.random() * 500); i++) {
             citizenList.add(new Citizen("", "", 34));

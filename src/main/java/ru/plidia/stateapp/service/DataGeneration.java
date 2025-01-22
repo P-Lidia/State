@@ -12,8 +12,7 @@ public class DataGeneration {
     public List<District> generateDistrictList(Object o) {
         List<District> districtList = new ArrayList<>();
         for (int i = 0; i < (int) (5 + Math.random() * 3); i++) {
-            districtList.add(new District("",
-                    generateCityList(new City())));
+            districtList.add(new District("", generateCityList(new City())));
         }
         return districtList;
     }
@@ -21,8 +20,7 @@ public class DataGeneration {
     public List<City> generateCityList(Object o) {
         List<City> cityList = new ArrayList<>();
         for (int i = 0; i < (int) (5 + Math.random() * 5); i++) {
-            cityList.add(new City("",
-                    generateCitizenList(new Citizen())));
+            cityList.add(new City("", generateCitizenList(new Citizen())));
         }
         return cityList;
     }

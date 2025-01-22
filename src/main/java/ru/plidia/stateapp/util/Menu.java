@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class Menu {
     private final OperationWithCitizenList sorting = new OperationWithCitizenList();
-    private final PrintRequest request = new PrintRequest();
+    private final PrintRequest print = new PrintRequest();
 
     public void menuChoice(State state) {
         Scanner sc = new Scanner(System.in);
@@ -22,23 +22,25 @@ public class Menu {
             int choice = sc.nextInt();
             switch (choice) {
                 case 1:
-                    request.printCapital(state);
+                    print.printCapital(state);
                     break;
                 case 2:
-                    request.printRegionNumber(state);
+                    print.printRegionNumber(state);
                     break;
                 case 3:
-                    request.printStateArea(state);
+                    print.printStateArea(state);
                     break;
                 case 4:
-                    request.printSortResult(sorting.averageCitizenAge(state));
+                    print.printSortResult(sorting.averageCitizenAge(state));
                     break;
                 case 5:
-                    request.printSortResult(sorting.sortNamesByFirstLetter(state));
+                    print.printSortResult(sorting.sortNamesByFirstLetter(state));
                     break;
                 case 6:
-                    request.printSortResult(sorting.sortNameOfLetterNumbers(state));
+                    print.printSortResult(sorting.sortNameOfLetterNumbers(state));
                     break;
+                default:
+                    print.printMessage();
             }
         }
     }

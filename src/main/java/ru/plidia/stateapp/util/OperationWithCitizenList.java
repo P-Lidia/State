@@ -3,55 +3,20 @@ package ru.plidia.stateapp.util;
 import ru.plidia.stateapp.entity.Citizen;
 import ru.plidia.stateapp.entity.State;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class OperationWithCitizenList {
 
     public List<Citizen> creatAllCitizenList(State state) {
-        List<Citizen> allCitizenList = new ArrayList<>();
-        int sizeRegion = state
-                .getRegion()
-                .size();
-        for (int i = 0; i < sizeRegion; i++) {
-            int sizeDistrict = state
-                    .getRegion()
-                    .get(i)
-                    .getDistrict()
-                    .size();
-            for (int j = 0; j < sizeDistrict; j++) {
-                int sizeCity = state
-                        .getRegion()
-                        .get(i)
-                        .getDistrict()
-                        .get(j)
-                        .getCity()
-                        .size();
-                for (int k = 0; k < sizeCity; k++) {
-                    int sizeCitizen = state
-                            .getRegion()
-                            .get(i)
-                            .getDistrict()
-                            .get(j)
-                            .getCity()
-                            .get(k)
-                            .getCitizenList()
-                            .size();
-                    for (int l = 0; l < sizeCitizen; l++) {
-                        allCitizenList.add(state
-                                .getRegion()
-                                .get(i)
-                                .getDistrict()
-                                .get(j)
-                                .getCity()
-                                .get(k)
-                                .getCitizenList()
-                                .get(l));
-                    }
-                }
-            }
-        }
+        List<Citizen> allCitizenList = state.getRegion().stream()
+                .flatMap(districts -> districts.getDistrict().stream())
+                .collect(Collectors.toList())
+                .stream().flatMap(city -> city.getCity().stream())
+                .collect(Collectors.toList())
+                .stream().flatMap(citizen -> citizen.getCitizenList().stream())
+                .collect(Collectors.toList());
         return allCitizenList;
     }
 

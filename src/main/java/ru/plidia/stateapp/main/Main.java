@@ -17,8 +17,7 @@ public class Main {
         DataGeneration generation = new DataGeneration();
         List<Region> regionList = new ArrayList<>();
         for (int i = 0; i < (int) (2 + Math.random() * 4); i++) {
-            regionList.add(new Region("",
-                    generation.generateDistrictList(new District())));
+            regionList.add(new Region("", generation.generateDistrictList(new District())));
         }
         Capital capital = new Capital(
                 regionList

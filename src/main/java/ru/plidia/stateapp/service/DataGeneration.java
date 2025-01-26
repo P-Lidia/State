@@ -3,12 +3,21 @@ package ru.plidia.stateapp.service;
 import ru.plidia.stateapp.entity.Citizen;
 import ru.plidia.stateapp.entity.City;
 import ru.plidia.stateapp.entity.District;
+import ru.plidia.stateapp.entity.Region;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
 public class DataGeneration {
+    public List<Region> generateRegionList() {
+        List<Region> regionList = new ArrayList<>();
+        for (int i = 0; i < (int) (2 + Math.random() * 4); i++) {
+            regionList.add(new Region("", generateDistrictList()));
+        }
+        return regionList;
+    }
+
     public List<District> generateDistrictList() {
         List<District> districtList = new ArrayList<>();
         for (int i = 0; i < (int) (5 + Math.random() * 3); i++) {

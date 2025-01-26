@@ -15,28 +15,26 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
         DataGeneration generation = new DataGeneration();
-        List<Region> regionList = new ArrayList<>();
-        for (int i = 0; i < (int) (2 + Math.random() * 4); i++) {
-            regionList.add(new Region("", generation.generateDistrictList()));
-        }
+        State state = State.getInstance();
+        state.setRegion(generation.generateRegionList());
         Capital capital = new Capital(
-                regionList
+                state
+                        .getRegion()
                         .get(1)
                         .getDistrict()
                         .get(1)
                         .getCity()
                         .get(2)
                         .getName(),
-                regionList
+                state
+                        .getRegion()
                         .get(1).
                         getDistrict()
                         .get(1)
                         .getCity()
                         .get(2)
                         .getCitizenList());
-        State state = State.getInstance();
         state.setCapital(capital);
-        state.setRegion(regionList);
         Menu menu = new Menu();
         menu.menuChoice(state);
     }

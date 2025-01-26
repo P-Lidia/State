@@ -2,14 +2,9 @@ package ru.plidia.stateapp.main;
 
 
 import ru.plidia.stateapp.entity.Capital;
-import ru.plidia.stateapp.entity.District;
-import ru.plidia.stateapp.entity.Region;
 import ru.plidia.stateapp.entity.State;
 import ru.plidia.stateapp.service.DataGeneration;
 import ru.plidia.stateapp.util.Menu;
-
-import java.util.ArrayList;
-import java.util.List;
 
 
 public class Main {

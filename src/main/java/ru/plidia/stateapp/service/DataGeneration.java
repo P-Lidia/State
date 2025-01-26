@@ -37,7 +37,7 @@ public class DataGeneration {
     public List<Citizen> generateCitizenList() {
         List<Citizen> citizenList = new ArrayList<>();
         for (int i = 0; i < (int) (1000 + Math.random() * 500); i++) {
-            citizenList.add(new Citizen("", "", 34));
+            citizenList.add(new Citizen("", ""));
         }
         return citizenList;
     }
@@ -51,9 +51,5 @@ public class DataGeneration {
             sb.append((char) ('a' + random.nextInt(25)));
         }
         return sb.toString();
-    }
-
-    public static int generateRandomAge(int age) {
-        return (int) (Math.random() * 100);
     }
 }

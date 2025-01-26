@@ -3,7 +3,6 @@ package ru.plidia.stateapp.entity;
 
 import java.util.concurrent.atomic.AtomicLong;
 
-import static ru.plidia.stateapp.service.DataGeneration.generateRandomAge;
 import static ru.plidia.stateapp.service.DataGeneration.generateRandomName;
 
 public class Citizen {
@@ -16,11 +15,11 @@ public class Citizen {
     public Citizen() {
     }
 
-    public Citizen(String name, String surname, int age) {
+    public Citizen(String name, String surname) {
         this.id = nextId.incrementAndGet();
         this.name = generateRandomName(name);
         this.surname = generateRandomName(surname);
-        this.age = generateRandomAge(age);
+        this.age = (int) (Math.random() * 100);
     }
 
     public Long getId() {

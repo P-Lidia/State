@@ -9,9 +9,9 @@ import ru.plidia.stateapp.util.Menu;
 
 public class Main {
     public static void main(String[] args) {
-        DataGeneration generation = new DataGeneration();
+        DataGeneration dataGeneration = new DataGeneration();
         State state = State.getInstance();
-        state.setRegion(generation.generateRegionList());
+        state.setRegion(dataGeneration.generateRegionList());
         Capital capital = new Capital(
                 state
                         .getRegion()

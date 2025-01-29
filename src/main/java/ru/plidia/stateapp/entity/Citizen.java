@@ -6,7 +6,7 @@ import java.util.concurrent.atomic.AtomicLong;
 import static ru.plidia.stateapp.service.DataGeneration.generateRandomName;
 
 public class Citizen {
-    static AtomicLong nextId = new AtomicLong();
+    private static AtomicLong nextId = new AtomicLong();
     private Long id;
     private String name;
     private String surname;

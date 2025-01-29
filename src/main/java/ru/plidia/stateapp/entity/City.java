@@ -3,7 +3,6 @@ package ru.plidia.stateapp.entity;
 
 import java.util.List;
 
-import static ru.plidia.stateapp.service.DataGeneration.generateRandomName;
 
 public class City {
     private String name;
@@ -13,7 +12,7 @@ public class City {
     }
 
     public City(String name, List<Citizen> citizenList) {
-        this.name = generateRandomName(name);
+        this.name = name;
         this.citizenList = citizenList;
     }
 
